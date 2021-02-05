@@ -75,7 +75,8 @@ console.log(i);
 background = document.createElement('div');
 background.id = 'background';
 document.body.appendChild(background);
-background.style.background = "url('"+backgrounds[i]+"')";
+var dir = "resources/" + backgrounds[i]
+background.style.background = "url('"+ dir +"')";
 
 function getImgSize(imgSrc, b) {
 var newImg = new Image();
@@ -94,7 +95,7 @@ newImg.onload = function() {
 
 newImg.src = imgSrc; // this must be done AFTER setting onload
 }
-getImgSize(backgrounds[i], background)
+getImgSize(dir, background)
 document.body.style.padding = 0;
 // document.body.style.background = "url('"+backgrounds[i]+"')";
 var paragraphs = document.getElementsByTagName('p');
