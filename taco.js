@@ -60,7 +60,6 @@ function moveElements(){
     for (var i = 0; i < links.length; i++){
         var el = links[i]
         el.addEventListener('click', fadeandfall);
-        // el.addEventListener('transitionend', () => el.style.display = 'None');
         el.setAttribute('nothref', el.href);
         el.removeAttribute('href');
     }
@@ -97,15 +96,3 @@ newImg.src = imgSrc; // this must be done AFTER setting onload
 }
 getImgSize(dir, background)
 document.body.style.padding = 0;
-// document.body.style.background = "url('"+backgrounds[i]+"')";
-var paragraphs = document.getElementsByTagName('p');
-for (var i = 0; i < paragraphs.length; i++){
-    var p = paragraphs[i]
-    p.style.fontWeight = 700;
-    p.style.webkitTextStroke = '1px';
-    p.style.webkitTextStrokeColor = 'white';
-}
-
-// document.getElementsByTagName('nav')[0].style.display = 'none';
-// document.getElementsByClassName('content')[0].style.height = '300px';
-// document.getElementsByClassName('content')[0].style.width = '100%';
