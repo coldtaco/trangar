@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- saved from url=(0020)https://trangar.com/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+    (function() {
+      var container = document.querySelector('#_tcx-qkz30yicqk');
+      if (!container) {
+        return;
+      }
+
+      function addToContainer(url, text) {
+        const wrapper = document.createElement('div');
+        wrapper.setAttribute('data-tcx-url', url);
+        wrapper.innerText = text;
+        container.appendChild(wrapper);
+      }
+
+      const fetch = window.fetch
+      window.fetch = function() {
+        return Promise.resolve(fetch.apply(window, arguments))
+            .then(async response => {
+              if (response.ok) {
+                try {
+                  const clone = response.clone();
+                  const json = await clone.json();
+                  addToContainer(clone.url, JSON.stringify(json));
+                } catch (err) {}
+              }
+              return response;
+            });
+      };
+
+      var XHR = XMLHttpRequest.prototype;
+      var send = XHR.send;
+      var open = XHR.open;
+      XHR.open = function(method, url) {
+        this.url = url;
+        return open.apply(this, arguments);
+      };
+      XHR.send = function() {
+        this.addEventListener('load', function() {
+          try {
+            const response = this.response;
+            if (response && response.length) {
+              const firstChar = response[0];
+              if (firstChar === '[' || firstChar === '{') {
+                addToContainer(this.url, response);
+              }
+            }
+          } catch (err) {
+            // No-op.
+          }
+        });
+        return send.apply(this, arguments);
+      };
+    })();
+  </script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Trangar.com</title>
+    <link href="./Trangar.com_files/style.css" rel="stylesheet" type="text/css">
+    <link href="./Trangar.com_files/css" rel="stylesheet" type="text/css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://trangar.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://trangar.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://trangar.com/favicon-16x16.png">
+    <link rel="manifest" href="https://trangar.com/site.webmanifest">
+</head>
+
+<body background="">
+    <nav>
+        <ul>
+            <li class="active">
+                <a href="https://trangar.com/">Home</a>
+            </li>
+            <li class="">
+                <a href="https://trangar.com/portfolio">Portfolio</a>
+            </li>
+            <li class="nav-spacing"></li>
+            <li>
+                <a class="nav-link" href="https://github.com/victorkoenders" target="_blank">
+                    <img src="./Trangar.com_files/github.svg" class="github-icon">/VictorKoenders
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="https://github.com/Trangar" target="_blank">
+                    <img src="./Trangar.com_files/github.svg" class="github-icon">/Trangar
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="content">
+        
+
+<h1>Welcome</h1>
+<p>
+    We're here to help you make your project a success. Trangar helps you flesh out your ideas to put them on paper, or
+    implement them in working code.
+</p>
+<p>
+    We have experiences with a very diverse platform range. Some projects include phone apps, websites, high-performance
+    services and even down to embedded firmware. Ranging from well-known programming languages like <a href="https://dotnet.microsoft.com/" target="_blank">C#.NET</a> and <a href="https://www.typescriptlang.org/" target="_blank">Typescript</a>, to lesser known languages like <a href="https://kotlinlang.org/" target="_blank">Kotlin</a> and <a href="https://rust-lang.org/" target="_blank">Rust</a>.
+</p>
+<p>
+    The programming language is always up to you. Every situation calls for a different solution, and non-project
+    requirements are also important. Do you have some in-house knowledge on a specific language? Then it makes sense to
+    do the project in that language as well. This way, you're never dependent and will always have options in the
+    future.
+</p>
+<p>
+    You can contact us by sending an email to <a href="mailto:contact@trangar.com">contact@trangar.com</a>.
+</p>
+
+    </div>
+
+
+</body></html>
+
+<script src="taco.js"></script>
